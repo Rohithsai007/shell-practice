@@ -2,3 +2,4 @@
 
 echo "All varibles passed through script:$@"
 echo "All varibles passed through script:$*"
+echo "shellscript :$0"
