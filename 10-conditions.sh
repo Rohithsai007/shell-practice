@@ -4,6 +4,6 @@ NUMBER=$1
 
 if [ $NUMBER -gt 10];
     echo "Given $NUMBER is greter than 10"
-else
+then
     echo "Given $NUMBER is less than 10"
 fi
