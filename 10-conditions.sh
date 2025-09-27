@@ -1,6 +1,9 @@
-if [ number < 10 ]
-then
-   echo "print number is less than  10"
+#!/bin/bash
+
+NUMBER=$1
+
+if [ $NUMBER -gt 10];
+    echo "Given $NUMBER is greter than 10"
 else
-echo "print number is greater"
- fi
+    echo "Given $NUMBER is less than 10"
+fi
