@@ -6,8 +6,8 @@ Y = "\e[33m"
 N = "\e[0m"
 
 echo -e "$G Helloworld $N"
-echo -e "$B Hello world"
-echo -e "$Y Hello world"
+echo -e "$B Hello world $N"
+echo -e "$Y Hello world $N"
 
 
 
