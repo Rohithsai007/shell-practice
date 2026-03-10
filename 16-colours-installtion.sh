@@ -1,3 +1,34 @@
+# #!/bin/bash
+
+# USERID=$(id -u)
+
+# R="\e[31m"
+# G="\e[32m"
+# Y="\e[33m"
+# N="\e[0m"
+
+# if [ $USERID -ne 0 ]; then
+#     echo -e "${R}ERROR: Please run with root access${N}"
+#     exit 1
+# fi
+
+# VALIDATE(){
+#     if [ $1 -ne 0 ]; then
+#         echo -e "${R}ERROR: $2 installation failed${N}"
+#     else
+#         echo -e "${G}SUCCESS: $2 installation completed${N}"
+#     fi
+# }
+
+# dnf list installed mysql &>/dev/null
+
+# if [ $? -ne 0 ]; then
+#     dnf install mysql -y
+#     VALIDATE $? "nginx"
+# else
+#     echo -e "${Y}nginx installation skipped (already installed)${N}"
+# fi
+
 #!/bin/bash
 
 USERID=$(id -u)
@@ -8,7 +39,7 @@ Y="\e[33m"
 N="\e[0m"
 
 if [ $USERID -ne 0 ]; then
-    echo -e "${R}ERROR: Please run with root access${N}"
+    echo -e "${R}ERROR: Please run this script with root access${N}"
     exit 1
 fi
 
@@ -20,11 +51,13 @@ VALIDATE(){
     fi
 }
 
-dnf list installed mysql &>/dev/null
+# Check if mongosh is installed
+dnf list installed mongosh &>/dev/null
 
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
-    VALIDATE $? "nginx"
+    echo -e "${Y}Installing mongosh...${N}"
+    dnf install -y mongosh
+    VALIDATE $? "MONGOSH"
 else
-    echo -e "${Y}nginx installation skipped (already installed)${N}"
+    echo -e "${Y}mongosh installation skipped (already installed)${N}"
 fi
